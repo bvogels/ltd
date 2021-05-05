@@ -4,17 +4,88 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-		<link rel="stylesheet" href="./styles/main.css">
+		<!--<link rel="stylesheet" href="./styles/main.css">-->
+
 		
 		<title>
 		Lockdown Travel Desk
 		</title>
-		
+				<script src="https://www.w3schools.com/lib/w3.js"></script> 
+
 	</head>
 	
 <body>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-1 align-self-center">
+					<a href="#">Home</a>
+				</div>
+				<div class="col-sm-1 align-self-center">
+					<a href="#">Login</a>
+				</div>
+				<div class="col-sm-2 align-self-center">
+					<div class="dropdown">
+						<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Currency
+						<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li>EUR</li>
+							<li>US Dollar</li>
+							<li>British Pound</li>
+						</ul>
+					</div>
+				</div>
+			<div class="col-sm-7 align-self-center">
+				<h1>Lockdown Travel Desk</h1>
+			</div>
+			<div class="col-sm-1 align-self-center text-right">
+				Link
+			</div>
+		</div>
+	</div>
+	</header>
+	<hr>
+	<main>
 	<div class="container">
-		<h1>The Lockdown Travel Desk</h1>
-		<p>Go where you want. By plane!</p>
+		<table id="flights" class="table">
+			<!--<thead>-->
+				<tr>
+					<th onclick="w3.sortHTML('#flights','.item', 'td:nth-child(1)')">Airline</th>
+					<th onclick="w3.sortHTML('#flights','.item', 'td:nth-child(2)')">Departure</th>
+					<th onclick="w3.sortHTML('#flights','.item', 'td:nth-child(3)')">Arrival</th>
+					<th onclick="w3.sortHTML('#flights','.item', 'td:nth-child(4)')">Duration</th>
+					<th onclick="w3.sortHTML('#flights','.item', 'td:nth-child(5)')">Fare</th>
+				</tr>
+			<!--</thead>-->
+			<tbody>
+				<tr class="item">
+					<td>Austrian Airlines</td>
+					<td>13:45</td>
+					<td>15:30</td>
+					<td>2:05h</td>
+					<td>375</td>
+				</tr>
+				<tr class="item">
+					<td>Lufthansa</td>
+					<td>12:30</td>
+					<td>14:05</td>
+					<td>1:35h</td>
+					<td>350</td>
+				</tr>
+				<tr class="item">
+					<td>Britisch Airways</td>
+					<td>9:00</td>
+					<td>10:55</td>
+					<td>1:55h</td>
+					<td>355</td>
+					
+			</tbody>
+		</table>
+	</div>
+	</main>
+
+
+
+					
 </body>
 </html>
