@@ -11,16 +11,3 @@
     margin: auto;
     padding: 5px;
 }
-ul{
-    list-style: none;
-    width: 100px;
-}
-.navlist a:hover{
-    background-color: blue;
-    color: white;
-    text-decoration: none;
-}
-.navlist a:link, a:visited{
-    color: black;
-    text-decoration: none;
-}
