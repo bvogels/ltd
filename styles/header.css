@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+header{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    align-items:center;
+    font-family: 'Montserrat', sans-serif;
+}
+div{
+    flex: 1;
+    margin: 0px;
+}
+
+.headertext{
+    color: #6D6D6D;
+    margin-left: 10px;
+}
+
+nav{
+    flex:2;
+}
+
+.menue-links{
+    justify-content: space-around;
+    list-style: none;
+    display: flex;
+
+}
+.menue-link{
+    text-decoration: none;
+    font-size: 18px;
+    color: #6D6D6D;
+}
