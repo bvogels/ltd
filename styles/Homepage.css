@@ -10,41 +10,6 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
-header{
-    display: flex;
-    width: 100%;
-    height: 70px;
-    align-items:center;
-}
-div{
-    flex: 3;
-    margin: 0px;
-}
-
-.headertext{
-    color: #6D6D6D;
-    margin-left: 10px;
-}
-
-nav{
-    flex:2;
-}
-
-.menue-links{
-    justify-content: space-around;
-    list-style: none;
-
-}
-.menue-link{
-    text-decoration: none;
-    font-size: 18px;
-    color: #6D6D6D;
-}
-
-.menue-links{
-    display: flex;
-}
-
 .logo{
     display: flex;
     justify-content: space-around;
