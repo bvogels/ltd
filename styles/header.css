@@ -12,3 +12,23 @@
         border:none;
 }
 
+footer{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: lightgrey;
+    margin-top: 100px;
+    margin-bottom: 0px;
+    height: 80px;
+
+
+}
+
+#footerp{
+
+
+    font-size: 12px;
+
+}
+
