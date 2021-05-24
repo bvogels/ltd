@@ -91,16 +91,3 @@ hr{
 
 }
 
-.dropdown-toggle{
-    background-color: #f9f9f9;
-    color: grey;
-    border:none;
-
-}
-
-.dropdown-toggle:hover{
-
-    background-color: white;
-        color: black;
-        border:none;
-}
