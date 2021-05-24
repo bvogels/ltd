@@ -17,18 +17,18 @@
 input[type="date"],
 input[type="time"] {
 
-    color: black;
+    color: grey;
     width: 200px;
-    height: 70px;
+    height: 65px;
     border: none;
-    background: lightgrey;
+    background: white;
 }
 
 input[type="text"]{
-    height: 70px;
+    height: 65px;
     width: 300px;
     border:none;
-    background: lightgrey;
+    background: white;
 
 }
 
@@ -37,12 +37,11 @@ input[type="text"]{
 }
 
 .infobox{
-    background-color:lightgrey;
+    background-color:white;
     height: 70px;
     width:100%;
-    margin-top: 100px;
-    margin-bottom: 200px;
-    margin
+    margin: auto;
+
 }
 
 
@@ -91,3 +90,19 @@ hr{
 
 }
 
+.searchInfo{
+
+    border: 1px solid grey;
+    width: 70%;
+    margin-top:100px;
+    margin-bottom: 150px;
+    border-radius: 50px;
+
+}
+
+.searchInfoBox{
+
+
+    justify-content: center;
+
+}
