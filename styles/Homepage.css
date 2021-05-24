@@ -85,3 +85,22 @@ footer{
     font-size: 12px;
 
 }
+
+hr{
+    background-color:#722f37;
+
+}
+
+.dropdown-toggle{
+    background-color: #f9f9f9;
+    color: grey;
+    border:none;
+
+}
+
+.dropdown-toggle:hover{
+
+    background-color: white;
+        color: black;
+        border:none;
+}
