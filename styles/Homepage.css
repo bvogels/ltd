@@ -50,6 +50,7 @@ input[type="text"]{
 }
 .textfields{
     margin: 0 auto;
+
 }
 
  .my-col{
@@ -85,6 +86,8 @@ hr{
     margin-top:100px;
     margin-bottom: 120px;
     border-radius: 50px;
+    overflow: auto;
+
 
 }
 
@@ -97,9 +100,26 @@ hr{
 #searchlink {
     font-size: large;
     text-align: right;
+    color: grey;
 }
 
 #searchlink:hover{
-    background-color: aqua;
+
     border-radius: 15px;
+    overflow: auto;
+    text-decoration: none;
+}
+
+input:focus{
+
+    border: 0px solid white;
+    background-color: white;
+    border: 0px solid
+
+}
+
+input{
+
+background-color: transparent;
+    border: 0px solid
 }
