@@ -1,9 +1,10 @@
+*{
+    font-family: 'Poppins', sans-serif;
 
+}
 .container {
     margin-top: 10vh;
 }
 #textboxes{
     width: 100px;
 }
-
-
