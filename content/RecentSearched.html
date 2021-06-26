@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LTD Homepage example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" href="styles/recentsearched.css">
+    <link rel="stylesheet" href="styles/header_footer.css">
+
+</head>
+
+
+<body>
+
+<!------header--->
+<header>
+<nav class = "navbar navbar-expand-md navbar-light sticky-top">
+    <div class = "container-fluid">
+        <a class = "navbar-brand" href="#">LTD- Travel Desk</a>
+        <button class ="navbar-toggler" type = "button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id = "navbarResponsive">
+            <ul class ="navbar-nav ml-auto">
+                <li class = "nav-item active">
+                    <a class = "nav-link" href="Homepage.html">Home</a>
+                </li>
+                <li class = "nav-item">
+                    <a class = "nav-link" href="login.html">Login</a>
+                </li>
+                <li class = "nav-item">
+                    <a class = "nav-link" href="">About</a>
+                </li>
+                <li class = "nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuBtn" data-toggle="dropdown">
+                            Currency
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Euro</a>
+                            <a class="dropdown-item" href="#">Dollar</a>
+                            <a class="dropdown-item" href="#">British Pound</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
+
+<main>
+<div id="websiteTitle">
+    <h1>Recent Searched Locations</h1>
+</div>
+
+<div class="container-fluid padding searchInfo">
+    <div class="row text-center infobox d-flex align-items-center ">
+        <div class="col-5 information" id = "destination">
+
+            <input type="text" id="dest" placeholder="Destination" width="50px">
+        </div>
+        <div class="col-3 information">
+
+            <input type="date" id="outgoing" name="outgoing" style="width: 200px">
+
+        </div>
+        <div class="col-3 information">
+
+            <input type="date" id="incoming" name="outgoing">
+            
+        </div>
+            <div id="searchlink">
+            <a href="desk.html" >Search Again</a>
+        </div>
+        
+    </div>
+</div>
+
+
+</main>
+<hr>
+
+
+
+<footer>
+
+    <div class="justify-content-center">
+        <p class = "text-center" id="footerp"> Copyright </p>
+    </div>
+</footer>
+</body>
+</html>
