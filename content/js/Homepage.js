@@ -1,18 +1,26 @@
+window.onload = (event) => {
+    console.log("ready");
+};
+
 document.addEventListener("DOMContentLoaded", function () {
-    let destination = document.getElementById("dest").value;
-    console.log(destination);
+
 
     let submitButton = document.getElementById("searchlink");
 
     submitButton.onclick = submitDestination;
 
     function submitDestination() {
-
-
+        let destination = document.getElementById("dest").value;
+        console.log(destination);
+        let outgoing = document.getElementById("outgoing").value;
+        let incoming = document.getElementById("incoming").value;
+        document.getElementById("dest").value = 'fun';
+console.log("funny");
     }
 
 });
 
+/*
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -20,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let outgoing = document.getElementById("outgoing").value;
     let incoming = document.getElementById("incoming").value;
 
-    let destLink = document.getElementById("destLink").href= destination;
 
     const fs = require("fs");
 
@@ -76,4 +83,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     })
 
-});
+});*/
