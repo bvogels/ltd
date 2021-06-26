@@ -11,16 +11,20 @@ app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
+const Routes = require ("./api/routes/Routes");
+app.use('/', Routes);
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-
+app.use(express.static(path.join(__dirname+ '/content/')));
 // Root endpoint
+/*
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname+'/content/Homepage.html'))
 });
 
 app.use(express.static(path.join(__dirname+ '/content/')));
-
+*/
 // Insert here other API endpoints
 
 // Default response for any other request
