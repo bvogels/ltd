@@ -9,8 +9,9 @@
 		  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+		<script scr ="js/ltd.js"></script>
 		<link rel="stylesheet" href="styles/header_footer.css">
-		<link rel = "stylesheet" href="styles/Desk.css">
+		<link rel = "stylesheet" href="styles/desk.css">
 		
 		<title>
 		Lockdown Travel Desk
@@ -37,7 +38,7 @@
 						<a class = "nav-link" href="Homepage.html">Home</a>
 					</li>
 					<li class = "nav-item">
-						<a class = "nav-link" href="Login.html">Login</a>
+						<a class = "nav-link" href="login.html">Login</a>
 					</li>
 					<li class = "nav-item">
 						<a class = "nav-link" href="">About</a>
@@ -89,14 +90,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 text-center">
-				View travel information on your destination: <a href="#" data-toggle="popover" data-html="true" title="Covid Information on Spain" data-content="This is information on COVID-19 regulations regarding Spain. Please adhere to local laws and obey local authorities. LTD assumes no responsibility for erroneous or outdated information. <ul><li>
+				View travel information on your destination: <a id ="destLink" href="#" data-toggle="popover" data-html="true" title="Covid Information on Spain" data-content="This is information on COVID-19 regulations regarding Spain. Please adhere to local laws and obey local authorities. LTD assumes no responsibility for erroneous or outdated information. <ul><li>
 				Mask wearing mandatory in metropolitan regions</li>
 				<li>Full vaccination recommended</li>
 				<li>Negativ Covid-19 test within 48 hours</li></ul> Source: WHO, retrieved: today">Spain</a>
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container table-responsive">
 		<table id="flights" class="table">
 			<!--<thead>-->
 				<tr>
@@ -144,7 +145,7 @@ $(document).ready(function(){
 </script>				
 
 
-	<footer>
+<footer>
 
 		<div class="justify-content-center">
 			<p class = "text-center" id="footerp"> Copyright </p>

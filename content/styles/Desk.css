@@ -2,3 +2,25 @@
     font-family: 'Poppins', sans-serif;
 
 }
+
+body{
+
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+footer{
+
+    margin-top: auto;
+}
+
+table{
+
+    margin-left:auto;
+    margin-right:auto
+}
+
+td{
+    text-align: center;
+}

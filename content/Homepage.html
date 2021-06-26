@@ -12,7 +12,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link rel="stylesheet" href="styles/Homepage.css">
     <link rel="stylesheet" href="styles/header_footer.css">
-    <script src="js/Homepage.js"></script>
+    <script src="js/ltd.js"></script>
 
 </head>
 
@@ -23,7 +23,7 @@
 <header>
 <nav class = "navbar navbar-expand-md navbar-light sticky-top">
     <div class = "container-fluid">
-        <a class = "navbar-brand" href="#">LTD- Travel Desk</a>
+        <a href="Homepage.html">Lockdown Travel Desk</a>
         <button class ="navbar-toggler" type = "button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
             <span class="icon-bar"></span>
@@ -36,10 +36,10 @@
                     <a class = "nav-link" href="Homepage.html">Home</a>
                 </li>
                 <li class = "nav-item">
-                    <a class = "nav-link" href="Login.html">Login</a>
+                    <a class = "nav-link" href="login.html">Login</a>
                 </li>
                 <li class = "nav-item">
-                    <a class = "nav-link" href="RecentSearches.html">Recent Searched</a>
+                    <a class = "nav-link" href="recentsearched.html">Recent Searched</a>
                 </li>
                 <li class = "nav-item">
                     <a class = "nav-link" href="">About</a>
@@ -71,19 +71,19 @@
     </ul>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="images/norway.jpg">
+            <img src="images/norway.jpg" class="img-fluid">
             <div class ="carousel-caption">
                 <h2>Find your next destination</h2>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="images/manhatten.jpg">
+            <img src="images/manhatten.jpg" class="img-fluid">
             <div class ="carousel-caption">
                 <h2>Find your next destination</h2>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="images/beach.jpg">
+            <img src="images/beach.jpg" class="img-fluid">
             <div class ="carousel-caption">
                 <h2>Find your next destination</h2>
             </div>
@@ -95,31 +95,41 @@
 
 
 <div class="container-fluid padding searchInfo">
-    <div class="row text-center infobox d-flex align-items-center ">
-        <div class="col-5 information" id = "destination">
+    <div class="row text-center infobox d-flex align-items-center justify-content-center">
+        <div class="col-xs-12 col-md-3 information" id = "destination">
 
-            <input type="text" id="dest" placeholder="Destination" width="50px">
-        </div>
-        <div class="col-3 information">
-
-            <input type="date" id="outgoing" name="outgoing" style="width: 200px">
+            <input type="text" id="dest" placeholder="Destination">
 
         </div>
-        <div class="col-3 information">
+    </div>
+</div>
 
+<div class="container-fluid padding searchInfo">
+    <div class="row text-center infobox d-flex align-items-center justify-content-center">
+        <div class="col-xs-12 col-md-3 information">
+
+            <input type="date" id="outgoing" name="outgoing">
+
+        </div>
+    </div>
+</div>
+<div class="container-fluid padding searchInfo">
+    <div class="row text-center infobox d-flex align-items-center justify-content-center">
+        <div class="col-xs-12 col-md-3 information">
             <input type="date" id="incoming" name="outgoing">
-            
+
         </div>
+    </div>
+</div>
+
+        <div class="row text-center infobox d-flex align-items-center justify-content-center">
+
             <div id="searchlink">
-            <a href="Desk.html" >Search </a>
+            <button href="desk.html">Search </button>
+            </div>
         </div>
 
-        <div class="col-2 information">
-            
-        </div>
-        <div class="col-1 information">
 
-        </div>
     </div>
 </div>
 
@@ -142,7 +152,7 @@
                     sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                     At vero eos et accusam et justo duo dolores et ea rebum.</p>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="col-sm-12  col-md-4">
                 <br>
                 <h2 class="text-center con-h">Our Goal</h2>
                 <hr>
@@ -152,11 +162,12 @@
 
             </div>
         </div>
+        <hr>
     </div>
 
 
 
-<hr>
+
 
 
 </main>

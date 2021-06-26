@@ -13,16 +13,8 @@
 }
 
 footer{
-    /*
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: lightgrey;
-    margin-top: 100px;
-    margin-bottom: 0px;
-    height: 80px;
-    */
-    position: absolute;
+
+    position: static;
     width: 100%;
     height: 80px;
     background-color: lightgrey;
@@ -31,7 +23,14 @@ footer{
     align-items: center;
     justify-content: space-around;
     padding:10px;
+    margin-top: auto;
 
+}
+
+#container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #footerp{
@@ -39,5 +38,11 @@ footer{
 
     font-size: 12px;
 
+}
+
+#logo{
+
+    height: 100px;
+    width: 200px;
 }
 
