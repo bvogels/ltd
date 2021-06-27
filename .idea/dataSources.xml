@@ -22,5 +22,19 @@
       <jdbc-url>jdbc:sqlite:C:\Users\Florentina\PhpstormProjects\ltd_2\api\models\test.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="flights" uuid="b856ea0a-efd6-428e-9eea-7446f17926ca">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Florentina\PhpstormProjects\ltd_2\flights.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="flights [2]" uuid="7e5d7bb0-3e23-4cd2-8b2f-3a603f473537">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Florentina\PhpstormProjects\ltd_2\api\models\flights.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

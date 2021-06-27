@@ -18,7 +18,7 @@
 </head>
 
 
-<body>
+<body id = "mainBody">
 
 <!------header--->
 <header>
@@ -62,8 +62,11 @@
     </div>
 </nav>
 </header>
-<main>
+
+
+<main id="mainHome">
 <!----slides---->
+<div id = "onchange">
 <div id = "slides" class ="carousel slide carousel-fade" data-ride="carousel">
     <ul class="carousel-indicators">
         <li data-target="#slides" data-slide-to="0" class="active"></li>
@@ -92,14 +95,15 @@
 
     </div>
 
-</div>
+    </div>
+
 
 
 <div class="container-fluid padding searchInfo" method = "POST" action="/search">
     <div class="row text-center infobox d-flex align-items-center justify-content-center">
         <div class="col-xs-12 col-md-3 information" id = "destination">
 
-            <input type="text" id="dest" placeholder="Destination">
+            <input type="text" id="dest" placeholder="Destination" required>
 
         </div>
     </div>
@@ -163,13 +167,10 @@
         </div>
         <hr>
     </div>
-
-
-
-
-
-
+</div>
 </main>
+
+
 <footer>
 
     <div class="justify-content-center">
