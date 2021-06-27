@@ -128,6 +128,8 @@ function createDesk(){
 
     let br1 = document.createElement("br");
     containerRow.appendChild(br1);
+    let br2 = document.createElement("br");
+    containerRow.appendChild(br2);
 
     let container8 = document.createElement("div");
     container8.setAttribute("class", "container");
