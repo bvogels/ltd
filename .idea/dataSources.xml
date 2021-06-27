@@ -15,5 +15,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\Markus\Nextcloud\Projects\WebTech2\ltd\api\models\test.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="test [3]" uuid="41022ed5-08a5-4769-bb7f-0b5a78a7bc0c">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Florentina\PhpstormProjects\ltd_2\api\models\test.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
