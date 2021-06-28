@@ -32,8 +32,11 @@ class Controller {
     static createaccount(req, res){
         Model.checkifAccountexists(req.body)
         .then(row =>{
+            console.log(row);
             if (row === undefined) {
+
                 Model.createAccount(req.body);
+
                 res.send(JSON.stringify({"Response" : "Account created"}));
             }
             else{

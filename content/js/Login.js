@@ -84,6 +84,7 @@ let password = document.getElementById("passwordbox").value;
             body: JSON.stringify({"mail": mail, "password": password})
         }).then( res => {
         res.json().then(function(data) {
+            console.log(data);
             if(data.Response === "Account created"){
                 document.getElementById("Errorbox").innerHTML ="Account created";
             }

@@ -5,6 +5,7 @@ const CityState = new Map();
 
 CityState.set("Helsinki", "Finland");
 CityState.set("Sevilla", "Spain");
+CityState.set("Vienna", "Austria");
 
 class Model {
     static getCovidInfo(city){
@@ -96,9 +97,11 @@ class Model {
             flightsDB.close();
             return flight;
         })
+       flightsDB.close();
     }
     static checkifAccountexists(body){
         let mail = body.mail;
+        console.log(mail);
         let db = new sqlite3.Database('./api/models/ltd.db');
         let sql = `SELECT * FROM users WHERE mail = ?`;
         return new Promise((resolve,reject)=>{
@@ -108,7 +111,6 @@ class Model {
                     reject(err);
                 }
                 else {
-
                     resolve(row);
                 }
             });
@@ -120,6 +122,7 @@ class Model {
     }
 
     static createAccount(body){
+        console.log(body);
         let db = new sqlite3.Database('./api/models/ltd.db');
         let dataset = [body.mail, body.password];
         let sql =  "INSERT INTO users VALUES (?, ?)";
