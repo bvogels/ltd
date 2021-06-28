@@ -5,13 +5,14 @@ window.onload = (event) => {
 document.addEventListener("DOMContentLoaded", function () {
 
 
-    let submitButton = document.getElementById("searchlink");
-
-    submitButton.onclick = submitDestination;
-
 
 
 });
+
+function openlogin(){
+    createLogin();
+
+}
 
 function submitDestination() {
 
@@ -51,163 +52,220 @@ function submitDestination() {
 }
 
 
-
 function createDesk(){
-
     document.getElementById("onchange").remove();
+    let main = document.getElementById("mainHome");
+    let hr = document.createElement("hr");
 
-    let container = document.createElement("div");
+    //First DIV
+    let divgeneral = document.createElement("div");
+    divgeneral.setAttribute("class", "container");
 
-    container.setAttribute("id", "onchange");
-    container.setAttribute("class","container");
+    //First Row
+    let divrowquery = document.createElement("div");
+    divrowquery.setAttribute("class", "row");
 
-    let containerRow = document.createElement("div");
-    container.setAttribute("class", "row");
+    let divcurrentquery = document.createElement("div");
+    divcurrentquery.setAttribute("class", "col-sm-6");
+    divcurrentquery.innerHTML = "Your current query: Flight to Spain, Europe";
 
-    let container3 = document.createElement("div");
-    container.setAttribute("class", "col-sm-6");
+    let divnewcases = document.createElement("div");
+    divnewcases.setAttribute("class","col-sm-6");
+    divnewcases.innerHTML = "new cases: 8186";
 
-    let p = document.createElement("p");
-    let pTxt = document.createTextNode("Your current query: Flight to Spain, Europe");
 
-    p.appendChild(pTxt);
-     //container4
-    let p2 = document.createElement("p");
-    let pTxt2 = document.createTextNode("Destination Airport: Sevilla (San Pablo Airport, SVQ)");
+    divrowquery.appendChild(divcurrentquery);
+    divrowquery.appendChild(divnewcases);
 
-    p2.appendChild(pTxt2);
+    //Second Row
+    let divrowdestination = document.createElement("div");
+    divrowdestination.setAttribute("class", "row");
 
-    //container5
-    let p3 = document.createElement("p");
-    let pTxt3 = document.createTextNode("Earliest Date: Monday, June 1st");
 
-    container3.appendChild(p);
-    containerRow.appendChild(container3);
+    let divdestination = document.createElement("div");
+    divdestination.setAttribute("class", "col-sm-6");
+    divdestination.innerHTML= "Destination Airport: Sevilla (San Pablo Airport, SVQ)";
 
-    container.appendChild(containerRow);
+    let divactivecases = document.createElement("div");
+    divactivecases.setAttribute("class", "col-sm-6");
+    divactivecases.innerHTML= "Active Case: 240606";
 
-    let container4 = document.createElement("div");
-    container.setAttribute("class", "col-sm-6");
 
-    container4.appendChild(p2);
-    containerRow.appendChild(container4);
+    divrowdestination.appendChild(divdestination);
+    divrowdestination.appendChild(divactivecases);
 
-    let container5 = document.createElement("div");
-    container.setAttribute("class", "col-sm-6");
+    //Third Row
+    let divrowearliestdate = document.createElement("div");
+    divrowearliestdate.setAttribute("class", "row");
 
-    container5.appendChild(pTxt3);
-    containerRow.appendChild(container5);
 
+    let divdate = document.createElement("div");
+    divdate.setAttribute("class", "col-sm-6");
+    divdate.innerHTML= "Earliest Date: Monday, June 1st";
+
+    divrowearliestdate.appendChild(divdate);
+
+    divgeneral.appendChild(divrowquery);
+    divgeneral.appendChild(divrowdestination);
+    divgeneral.appendChild(divrowearliestdate);
+
+    let divcovidinfo = document.createElement("div");
+    divcovidinfo.setAttribute("class", "container col-sm-12 text-center");
+    divcovidinfo.innerHTML = "View travel information on your destination:";
+
+    let acovidinfo = document.createElement("a");
+    acovidinfo.setAttribute("id", "covidinformation");
+    acovidinfo.setAttribute('href', "#");
+    acovidinfo.setAttribute("data-container", "body");
+    acovidinfo.setAttribute("data-placement", "right");
+    acovidinfo.setAttribute("data-toggle", "popover");
+    acovidinfo.setAttribute("title", "Covid Information on Spain");
+    acovidinfo.setAttribute("data-content", "Test");
+    acovidinfo.innerHTML="Spain";
+
+
+    divcovidinfo.appendChild(acovidinfo);
+
+
+
+    //DIV Flights
+
+    let divflights = document.createElement("div");
+    divflights.setAttribute("class", "container table-responsive");
+    let tableflights = document.createElement("table");
+    tableflights.setAttribute("class", "table");
+    let tablerow = document.createElement("tr");
+    tablerow.setAttribute("id", "flighttablerow");
+
+    let tableh1 = document.createElement("th");
+    tableh1.setAttribute("onclick", "w3.sortHTML('#flights','.item', 'td:nth-child(1)')");
+    tableh1.innerHTML ="Airline";
+
+
+    let tableh2 = document.createElement("th");
+    tableh2.setAttribute("onclick", "w3.sortHTML('#flights','.item', 'td:nth-child(2)')");
+    tableh2.innerHTML ="Departure";
+
+    let tableh3 = document.createElement("th");
+    tableh3.setAttribute("onclick", "w3.sortHTML('#flights','.item', 'td:nth-child(3)')");
+    tableh3.innerHTML ="Arrival";
+
+    let tableh4 = document.createElement("th");
+    tableh4.setAttribute("onclick", "w3.sortHTML('#flights','.item', 'td:nth-child(4)')");
+    tableh4.innerHTML ="Duration";
+
+    let tableh5 = document.createElement("th");
+    tableh5.setAttribute("onclick", "w3.sortHTML('#flights','.item', 'td:nth-child(5)')");
+    tableh5.innerHTML ="Fare";
+
+
+    tablerow.appendChild(tableh1);
+    tablerow.appendChild(tableh2);
+    tablerow.appendChild(tableh3);
+    tablerow.appendChild(tableh4);
+    tablerow.appendChild(tableh5);
+
+    let tablebody = document.createElement("tbody");
+    let tablerowitem = document.createElement("tr");
+    tablerowitem.setAttribute("class", "item");
+
+    let td1 = document.createElement("td");
+    td1.innerHTML = "Austrian Airlines";
+    let td2 = document.createElement("td");
+    td2.innerHTML = "13:45";
+    let td3 = document.createElement("td");
+    td3.innerHTML = "15:30";
+    let td4 = document.createElement("td");
+    td4.innerHTML = "20:05h";
+    let td5 = document.createElement("td");
+    td5.innerHTML = "375";
+
+    tablerowitem.appendChild(td1);
+    tablerowitem.appendChild(td2);
+    tablerowitem.appendChild(td3);
+    tablerowitem.appendChild(td4);
+    tablerowitem.appendChild(td5);
+
+    tablebody.appendChild(tablerowitem);
+    tableflights.appendChild(tablerow);
+    tableflights.appendChild(tablebody);
+    divflights.appendChild(tableflights);
+
+
+    main.appendChild(divgeneral);
+    main.appendChild(hr);
+    main.appendChild(divcovidinfo);
+    main.appendChild(divflights);
+    let divonchange = document.createElement("div");
+    divonchange.id = "onchange";
+    divonchange.appendChild(divgeneral);
+    divonchange.appendChild(hr);
+    divonchange.appendChild(divcovidinfo);
+    divonchange.appendChild(divflights);
+    main.appendChild(divonchange);
+
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+
+}
+
+function createLogin(){
+    document.getElementById("onchange").remove();
+    let main = document.getElementById("mainHome");
     let br = document.createElement("br");
-    containerRow.appendChild(br);
+    let divlogin = document.createElement("div");
+    divlogin.setAttribute("class", "container well text-center");
 
-    //container6
-    let p4 = document.createElement("p");
-    let pTxt4 = document.createTextNode("New Cases: 8186");
+    let form = document.createElement("form");
 
-    let container6 = document.createElement("div");
-    container.setAttribute("class", "col-sm-6");
+    let img = document.createElement("img");
+    img.setAttribute("src", "images/Arrow1.svg");
+    img.setAttribute("class", "rounded");
+    img.setAttribute("alt", "Logo");
+    img.height = 200;
+    img.width = 200;
 
-    container6.appendChild(pTxt4);
-    containerRow.appendChild(container6);
+    let h1 = document.createElement("h1");
+    h1.innerHTML = "Please Login";
 
-    //container7
-    let p5 = document.createElement("p");
-    let pTxt5 = document.createTextNode("Active Case: 240606");
+    let inputmail = document.createElement("input");
+    inputmail.setAttribute("type", "email");
+    inputmail.setAttribute("id", "emailbox");
+    inputmail.setAttribute("name", "mail");
+    inputmail.setAttribute("placeholder", "E-Mail");
+    inputmail.setAttribute("required", "");
 
-    let container7 = document.createElement("div");
-    container.setAttribute("class", "col-sm-6");
+    let inputpwd = document.createElement("input");
+    inputpwd.setAttribute("type", "password");
+    inputpwd.setAttribute("id", "passwordbox");
+    inputpwd.setAttribute("name", "password");
+    inputpwd.setAttribute("placeholder", "Password");
+    inputpwd.setAttribute("required", "");
 
-    container7.appendChild(pTxt5);
-    containerRow.appendChild(container7);
+    let perror = document.createElement("p");
+    perror.setAttribute("id", "Errorbox");
 
-    container.appendChild(containerRow);
-    document.getElementById("mainHome").appendChild(containerRow);
+    let submitbutton = document.createElement("button");
+    submitbutton.setAttribute("type", "submit");
+    submitbutton.setAttribute("class", "btn btn-danger");
+    submitbutton.setAttribute("role", "button");
+    submitbutton.setAttribute("onclick", "login()");
+    submitbutton.innerHTML="Login";
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////
-
-    let br1 = document.createElement("br");
-    containerRow.appendChild(br1);
-    let br2 = document.createElement("br");
-    containerRow.appendChild(br2);
-
-    let container8 = document.createElement("div");
-    container8.setAttribute("class", "container");
-
-    let x = document.createElement("TABLE");
-    x.setAttribute("id", "myTable");
-    document.body.appendChild(x);
-
-    let y = document.createElement("TR");
-    y.setAttribute("id", "myTr");
-
-    document.getElementById("myTable").appendChild(y);
-
-    let z = document.createElement("TD");
-    let t = document.createTextNode("Airline");
-    z.appendChild(t);
-
-    let e = document.createTextNode(" ");
-    z.appendChild(e);
-    let t1 = document.createTextNode("Departure");
-    z.appendChild(t1);
-
-    let e1 = document.createTextNode(" ");
-    z.appendChild(e1);
-
-    let t2 = document.createTextNode("Arrival");
-    z.appendChild(t2);
-
-    let e2 = document.createTextNode(" ");
-    z.appendChild(e2);
-
-    let t3 = document.createTextNode("Duration");
-    z.appendChild(t3);
-
-    let e3 = document.createTextNode(" ");
-    z.appendChild(e3);
-
-    let t4 = document.createTextNode("Fare");
-    z.appendChild(t4);
-
-    document.getElementById("myTr").appendChild(z);
-
-    let y1 = document.createElement("TR");
-    y1.setAttribute("id", "myTr");
-
-    let z1 = document.createElement("TD");
-    let t5 = document.createTextNode("Austrian Airlines");
-    z1.appendChild(t5);
-
-    let e4 = document.createTextNode(" ");
-    z1.appendChild(e4);
-
-    let t6 = document.createTextNode("13:45");
-    z1.appendChild(t6);
-
-    let e5 = document.createTextNode(" ");
-    z1.appendChild(e5);
-
-    let t7 = document.createTextNode("15:30");
-    z1.appendChild(t7);
-
-    let e6 = document.createTextNode(" ");
-    z1.appendChild(e6);
-
-    let t8 = document.createTextNode("2:05h");
-    z1.appendChild(t8);
-
-    let e7 = document.createTextNode(" ");
-    z1.appendChild(e7);
-
-    let t9 = document.createTextNode("375");
-    z1.appendChild(t9);
-
-    document.getElementById("myTable").appendChild(z1);
-
-
-    document.getElementById("mainHome").appendChild(x);
-
+    divlogin.appendChild(h1);
+    divlogin.appendChild(inputmail);
+    divlogin.appendChild(br);
+    divlogin.appendChild(inputpwd);
+    divlogin.appendChild(br);
+    divlogin.appendChild(perror);
+    divlogin.appendChild(br);
+    divlogin.appendChild(submitbutton);
+    //divlogin.appendChild(form);
+    let divonchange = document.createElement("div");
+    divonchange.id = "onchange";
+    divonchange.appendChild(divlogin);
+    main.appendChild(divonchange);
 
 }
 

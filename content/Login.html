@@ -13,6 +13,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/header_footer.css">
+    <script src="js/Login.js"></script>
 </head>
 
 <body>
@@ -54,25 +55,27 @@
             </div>
         </div>
     </nav>
-    </header>
+</header>
 
-    <main>
-        <div class="container">
-            <div class="well">
-                <div class="text-center">
+<main>
+    <div class="container">
+        <div class="well">
+            <div class="text-center">
+                <form>
                     <img src="images/Arrow1.svg" class="rounded" alt="Logo" height="200" width="200">
                     <h1>Please Login</h1>
-                    <input type="email" id="emailbox" placeholder="E-Mail">
+                    <input type="email" id="emailbox" name="mail" placeholder="E-Mail" required>
                     <br>
                     <br>
-                    <input type="password" id="passwordbox" placeholder="Password">
+                    <input type="password" id="passwordbox" name="password" placeholder="Password" required>
                     <br>
-                    <br>
-                    <a  class="btn btn-danger" href="recentsearched.html" role="button">Login</a>
-                </div>
+                    <p id="Errorbox"></p>
+                    <button type="submit" class="btn btn-danger" role="button" onclick="login()">Login</button>
+                </form>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
 
 <footer>

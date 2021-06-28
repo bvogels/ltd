@@ -1,3 +1,5 @@
+
+
 const fetch = require("node-fetch");
 const sqlite3 = require('sqlite3').verbose();
 
@@ -23,11 +25,7 @@ class Model {
         let deaths = data['All']['deaths'];
         let dataset = [country, confirmed, recovered, deaths];
 
-        let db = new sqlite3.Database('./api/models/test.db');
-        let placeholders = dataset.map((data) => '(?)').join(',');
-        console.log("__________________");
-        console.log(placeholders);
-        console.log("__________________");
+        let db = new sqlite3.Database('./api/models/ltd.db');
         db.run("CREATE TABLE IF NOT EXISTS covidinfo (country text PRIMARY KEY, confirmed long, recovered long, deaths long); ");
         let sql = "INSERT INTO covidinfo VALUES (?, ?, ?, ?)";
 
@@ -43,6 +41,26 @@ class Model {
         console.log(dataset);
 
     }
+
+    static getUsersFromDatabase(mail, callback){
+        let db = new sqlite3.Database('./api/models/ltd.db');
+        let sql = `SELECT * FROM users WHERE mail = ?`;
+        return new Promise((resolve,reject)=>{
+
+            db.get(sql, mail, (err, row) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    resolve(row);
+                }
+            });
+
+            db.close();
+        })
+
+    }
+
 }
 
 module.exports = Model;

@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LTD Homepage example</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
     <link rel="stylesheet" href="styles/Homepage.css">
     <link rel="stylesheet" href="styles/header_footer.css">
+    <link rel="stylesheet" href="styles/Desk.css">
+    <link rel="stylesheet" href="styles/Login.css">
+
     <script src="js/Homepage.js"></script>
+    <script src="js/Login.js"></script>
 
 
 </head>
@@ -37,7 +43,7 @@
                     <a class = "nav-link" href="Homepage.html">Home</a>
                 </li>
                 <li class = "nav-item">
-                    <a class = "nav-link" href="login.html">Login</a>
+                    <a class = "nav-link" onclick="openlogin()">Login</a>
                 </li>
                 <li class = "nav-item">
                     <a class = "nav-link" href="recentsearched.html">Recent Searched</a>
@@ -130,7 +136,7 @@
         <div class="row text-center infobox d-flex align-items-center justify-content-center">
 
             <div id="searchlink">
-            <button type="submit">Search</button>
+            <button type="submit" onclick="submitDestination()">Search</button>
             </div>
         </div>
 
@@ -169,8 +175,12 @@
     </div>
 </div>
 </main>
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
 
-
+</script>
 <footer>
 
     <div class="justify-content-center">

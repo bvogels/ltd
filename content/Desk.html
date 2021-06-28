@@ -9,7 +9,7 @@
 		  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-		<script scr ="js/ltd.js"></script>
+		<script src ="js/ltd.js"></script>
 		<link rel="stylesheet" href="styles/header_footer.css">
 		<link rel = "stylesheet" href="styles/desk.css">
 		
@@ -88,15 +88,18 @@
 	</div>
 	<hr>
 	<div class="container">
-		<div class="row">
+		<!--<div class="row">-->
 			<div class="col-sm-12 text-center">
 				View travel information on your destination: <a id ="destLink" href="#" data-toggle="popover" data-html="true" title="Covid Information on Spain" data-content="This is information on COVID-19 regulations regarding Spain. Please adhere to local laws and obey local authorities. LTD assumes no responsibility for erroneous or outdated information. <ul><li>
 				Mask wearing mandatory in metropolitan regions</li>
 				<li>Full vaccination recommended</li>
 				<li>Negativ Covid-19 test within 48 hours</li></ul> Source: WHO, retrieved: today">Spain</a>
 			</div>
-		</div>
+		<!--</div>-->
 	</div>
+		<a href="#" data-container="body" data-toggle="popover" data-placement="right" title="test" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+			Popover on right
+		</a>
 	<div class="container table-responsive">
 		<table id="flights" class="table">
 			<!--<thead>-->
@@ -138,10 +141,9 @@
 
 
 	<script>
-$(document).ready(function(){
-  $('[data-toggle="popover"]').popover();
-});
-
+		$(function () {
+			$('[data-toggle="popover"]').popover()
+		})
 </script>				
 
 
