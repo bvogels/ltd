@@ -53,9 +53,7 @@ function submitDestination() {
 }
 
 
-
 function createDesk(data){
-
     document.getElementById("onchange").remove();
     let main = document.getElementById("mainHome");
     let hr = document.createElement("hr");
@@ -70,9 +68,9 @@ function createDesk(data){
     let outgoingInfo = result.destination;
     let incomingInfo = result.destination;
 
-    console.log(destinationInfo);
+   // console.log(destinationInfo);
 
-    let container = document.createElement("div");
+    //let container = document.createElement("div");
 
     //First Row
     let divrowquery = document.createElement("div");
@@ -80,7 +78,7 @@ function createDesk(data){
 
     let divcurrentquery = document.createElement("div");
     divcurrentquery.setAttribute("class", "col-sm-6");
-    divcurrentquery.innerHTML = "Your current query: Flight to "+destinationInfo;
+    divcurrentquery.innerHTML = "Your current query: Flight to " + destinationInfo;
 
     let divnewcases = document.createElement("div");
     divnewcases.setAttribute("class","col-sm-6");
@@ -279,7 +277,7 @@ function createLogin(){
     divonchange.id = "onchange";
     divonchange.appendChild(divlogin);
     main.appendChild(divonchange);
-    bmeiaApi(destinationInfo);
+    //bmeiaApi(destinationInfo);
 
 
 }
@@ -292,4 +290,166 @@ function bmeiaApi(country){
     console.log(url);
 
 }
+
+/*
+
+function createDesk2(data) {
+
+    document.getElementById("onchange").remove();
+
+    let result = JSON.parse(data);
+
+    //entered information from user, usable for api
+    let destinationInfo = result.destination;
+    let outgoingInfo = result.destination;
+    let incomingInfo = result.destination;
+
+    console.log(destinationInfo);
+
+    let container = document.createElement("div");
+
+    container.setAttribute("id", "onchange");
+    container.setAttribute("class", "container");
+
+    let containerRow = document.createElement("div");
+    container.setAttribute("class", "row");
+
+    let container3 = document.createElement("div");
+    container.setAttribute("class", "col-sm-6");
+
+    let p = document.createElement("p");
+    let pTxt = document.createTextNode("Your current query: Flight to " + destinationInfo);
+
+    p.appendChild(pTxt);
+    //container4
+    let p2 = document.createElement("p");
+    let pTxt2 = document.createTextNode("Destination Airport: Sevilla (San Pablo Airport, SVQ)");
+
+    p2.appendChild(pTxt2);
+
+    //container5
+    let p3 = document.createElement("p");
+    let pTxt3 = document.createTextNode("Earliest Date: Monday, June 1st");
+
+    container3.appendChild(p);
+    containerRow.appendChild(container3);
+
+    container.appendChild(containerRow);
+
+    let container4 = document.createElement("div");
+    container.setAttribute("class", "col-sm-6");
+
+    container4.appendChild(p2);
+    containerRow.appendChild(container4);
+
+    let container5 = document.createElement("div");
+    container.setAttribute("class", "col-sm-12");
+
+    container5.appendChild(pTxt3);
+    containerRow.appendChild(container5);
+
+    let br = document.createElement("br");
+    containerRow.appendChild(br);
+
+    //container6
+    let p4 = document.createElement("p");
+    let pTxt4 = document.createTextNode("New Cases: 8186");
+
+    let container6 = document.createElement("div");
+    container.setAttribute("class", "col-sm-6");
+
+    container6.appendChild(pTxt4);
+    containerRow.appendChild(container6);
+
+    //container7
+    let p5 = document.createElement("p");
+    let pTxt5 = document.createTextNode("Active Case: 240606");
+
+    let container7 = document.createElement("div");
+    container.setAttribute("class", "col-sm-6");
+
+    container7.appendChild(pTxt5);
+    containerRow.appendChild(container7);
+
+    container.appendChild(containerRow);
+    document.getElementById("mainHome").appendChild(containerRow);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+
+    //TABLE
+    document.getElementById("mainHome").appendChild(document.createElement("br"));
+
+    let container8 = document.createElement("div");
+    container8.setAttribute("id", "container8");
+    container8.setAttribute("class", "table-responsive container");
+    let tables = document.createElement("TABLE");
+    tables.setAttribute("id", "myTable");
+    let tr = document.createElement("TR");
+    tr.setAttribute("id", "myTr");
+
+    let airline = document.createElement("TH");
+    airline.setAttribute("id", "airline");
+    let departure = document.createElement("TH");
+    departure.setAttribute("id", "departure");
+    let arrival = document.createElement("TH")
+    arrival.setAttribute("id", "arrival");
+    let duration = document.createElement("TH")
+    duration.setAttribute("id", "duration");
+    let fare = document.createElement("TH")
+    fare.setAttribute("id", "fare");
+
+    airline.appendChild(document.createTextNode("Airline"));
+    departure.appendChild(document.createTextNode("Departure"));
+    arrival.appendChild(document.createTextNode("Arrival"));
+    duration.appendChild(document.createTextNode("Duration"));
+    fare.appendChild(document.createTextNode("Fare"));
+
+    tr.appendChild(airline);
+    tr.appendChild(departure);
+    tr.appendChild(arrival);
+    tr.appendChild(duration);
+    tr.appendChild(fare);
+
+    tables.appendChild(tr);
+
+
+    let trow = document.createElement("TR");
+
+    trow.setAttribute("id", "trow");
+
+    let airlineInfo = document.createElement("TH");
+    airlineInfo.setAttribute("id", "airlineInfo");
+
+    let departureInfo = document.createElement("TH");
+    departureInfo.setAttribute("id", "departureInfo");
+
+    let arrivalInfo = document.createElement("TH")
+    arrivalInfo.setAttribute("id", "arrivalInfo");
+
+    let durationInfo = document.createElement("TH")
+    durationInfo.setAttribute("id", "durationInfo");
+
+    let fareInfo = document.createElement("TH")
+    fareInfo.setAttribute("id", "fareInfo");
+
+    airlineInfo.appendChild(document.createTextNode("Austrian Airlines"));
+    departureInfo.appendChild(document.createTextNode("15:00"));
+    arrivalInfo.appendChild(document.createTextNode("18:00"));
+    durationInfo.appendChild(document.createTextNode("3:00"));
+    fareInfo.appendChild(document.createTextNode("350"));
+
+    trow.appendChild(airlineInfo);
+    trow.appendChild(departureInfo);
+    trow.appendChild(arrivalInfo);
+    trow.appendChild(durationInfo);
+    trow.appendChild(fareInfo);
+
+    tables.appendChild(trow);
+
+    container8.appendChild(tables);
+
+    document.getElementById("mainHome").appendChild(container8);
+
+
+}*/
 

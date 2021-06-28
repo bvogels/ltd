@@ -55,7 +55,7 @@ input[type="text"]{
 
 }
 
- .my-col{
+.my-col{
     background: #F8F8F8;
 }
 .my-row{
@@ -143,7 +143,7 @@ input:focus{
 
 input{
 
-background-color: transparent;
+    background-color: transparent;
     border: 0px;
     outline: none;
 }
@@ -151,5 +151,21 @@ background-color: transparent;
 .textfields{
 
     margin-bottom: 70px;
+
+}
+
+th{
+
+    padding: 20px 40px;
+}
+
+table{
+
+
+}
+
+tr{
+
+    border-bottom: 2px solid grey;
 
 }
