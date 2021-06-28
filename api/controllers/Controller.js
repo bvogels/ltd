@@ -9,23 +9,59 @@ class Controller {
 
         res.sendFile(path.join(__dirname+'../../../content/Homepage.html'));
        //Model.getAPI();
-
+       // Model.displayAvailableFlight("Sevilla");
 
     }
-    static changeToHomepage(req,res){
-
+    static getcovidinfo(req,res){
+        Model.getCovidInfo(req.body.destination)
+            .then(row =>{
+                console.log(row);
+                res.send(row);
+            })
     }
 
     static storeInfoData(req, res){
-        console.log(req.route.path+" requested");
-        let item = req.body;
-
-        console.log(item);
-        //res.send(req.body);
-        //ask api
-        res.sendFile(path.join(__dirname+'../../../content/Desk.html'));
+          let item = req.body;
+        Model.displayAvailableFlight(item.destination)
+            .then(row =>{
+            res.send(row);
+        })
 
     }
+
+    static createaccount(req, res){
+        Model.checkifAccountexists(req.body)
+        .then(row =>{
+            if (row === undefined) {
+                Model.createAccount(req.body);
+                res.send(JSON.stringify({"Response" : "Account created"}));
+            }
+            else{
+                res.send(JSON.stringify({"Response" : "Account existed"}));
+            }
+
+        })
+    }
+
+    static getRecentSearched(req,res){
+        Model.getLastSearch(req.body.mail)
+            .then(row =>{
+                if(row === undefined){
+                    res.send(JSON.stringify({"mail" : "undefined"}));
+                }
+                else{
+                    res.send(row);
+                }
+
+            })
+    }
+
+    static logout(req,res){
+        req.session.destroy();
+        res.redirect('/');
+    }
+
+
 /*
     static login(req,res){
         let mail = req.body.mail;
@@ -53,10 +89,7 @@ class Controller {
             });
 
     }
-    static logout(req,res){
-        req.session.destroy();
-        res.redirect('/');
-    }
+
 */
 
 

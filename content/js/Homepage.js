@@ -4,9 +4,6 @@ window.onload = (event) => {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
-
-
 });
 
 function openlogin(){
@@ -18,7 +15,6 @@ function submitDestination() {
 
     let destinationName = document.getElementById("dest").value;
 
-    console.log(destinationName);
 
     let outgoing = document.getElementById("outgoing").value;
     let incoming = document.getElementById("incoming").value;
@@ -36,13 +32,14 @@ function submitDestination() {
 
         xhr.onreadystatechange = function () { // Call a function when the state changes.
             if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                createDesk(myVar);
+                let response = JSON.parse(this.responseText);
+                createDesk(response);
 
 
             }
         }
-        console.log(myVar);
         xhr.send(myVar);
+
 
 
 
@@ -54,6 +51,7 @@ function submitDestination() {
 
 
 function createDesk(data){
+    console.log(data);
     document.getElementById("onchange").remove();
     let main = document.getElementById("mainHome");
     let hr = document.createElement("hr");
@@ -61,13 +59,13 @@ function createDesk(data){
     //First DIV
     let divgeneral = document.createElement("div");
     divgeneral.setAttribute("class", "container");
-    let result = JSON.parse(data);
 
     //entered information from user, usable for api
-    let destinationInfo = result.destination;
-    let outgoingInfo = result.destination;
-    let incomingInfo = result.destination;
-
+    let destinationInfo = data.destination;
+    let airline = data.airline;
+    let departure = data.departure;
+    let arrival = data.arrival;
+    let price = data.price;
    // console.log(destinationInfo);
 
     //let container = document.createElement("div");
@@ -82,7 +80,7 @@ function createDesk(data){
 
     let divnewcases = document.createElement("div");
     divnewcases.setAttribute("class","col-sm-6");
-    divnewcases.innerHTML = "new cases: 8186";
+    divnewcases.id = "confirmed";
 
 
     divrowquery.appendChild(divcurrentquery);
@@ -95,11 +93,11 @@ function createDesk(data){
 
     let divdestination = document.createElement("div");
     divdestination.setAttribute("class", "col-sm-6");
-    divdestination.innerHTML= "Destination Airport: Sevilla (San Pablo Airport, SVQ)";
+    divdestination.innerHTML= "Destination Airport: " + destinationInfo;
 
     let divactivecases = document.createElement("div");
     divactivecases.setAttribute("class", "col-sm-6");
-    divactivecases.innerHTML= "Active Case: 240606";
+    divactivecases.id = "recovered";
 
 
     divrowdestination.appendChild(divdestination);
@@ -112,7 +110,7 @@ function createDesk(data){
 
     let divdate = document.createElement("div");
     divdate.setAttribute("class", "col-sm-6");
-    divdate.innerHTML= "Earliest Date: Monday, June 1st";
+    divdate.id= "death";
 
     divrowearliestdate.appendChild(divdate);
 
@@ -130,9 +128,9 @@ function createDesk(data){
     acovidinfo.setAttribute("data-container", "body");
     acovidinfo.setAttribute("data-placement", "right");
     acovidinfo.setAttribute("data-toggle", "popover");
-    acovidinfo.setAttribute("title", "Covid Information on Spain");
+    acovidinfo.setAttribute("title", "Covid Information on" + destinationInfo);
     acovidinfo.setAttribute("data-content", "Test");
-    acovidinfo.innerHTML="Spain";
+    acovidinfo.innerHTML= destinationInfo;
 
 
     divcovidinfo.appendChild(acovidinfo);
@@ -181,15 +179,15 @@ function createDesk(data){
     tablerowitem.setAttribute("class", "item");
 
     let td1 = document.createElement("td");
-    td1.innerHTML = "Austrian Airlines";
+    td1.innerHTML = airline;
     let td2 = document.createElement("td");
-    td2.innerHTML = "13:45";
+    td2.innerHTML = departure;
     let td3 = document.createElement("td");
-    td3.innerHTML = "15:30";
+    td3.innerHTML = arrival;
     let td4 = document.createElement("td");
     td4.innerHTML = "20:05h";
     let td5 = document.createElement("td");
-    td5.innerHTML = "375";
+    td5.innerHTML = price;
 
     tablerowitem.appendChild(td1);
     tablerowitem.appendChild(td2);
@@ -214,6 +212,27 @@ function createDesk(data){
     divonchange.appendChild(divcovidinfo);
     divonchange.appendChild(divflights);
     main.appendChild(divonchange);
+
+    fetch("/getcovidinfo",
+        {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({"destination": data.destination})
+        }).then( res => {
+        res.json().then(function(data) {
+            console.log(data);
+            document.getElementById("recovered").innerHTML = "Recovered: " + data.recovered;
+            document.getElementById("confirmed").innerHTML = "Confirmed: " + data.confirmed;
+            document.getElementById("death").innerHTML = "Deaths: " + data.deaths;
+        });
+    }).catch ( e => {
+        console.log(e);
+        // handle errors here
+
+    });
 
     $(function () {
         $('[data-toggle="popover"]').popover()
@@ -257,6 +276,11 @@ function createLogin(){
     let perror = document.createElement("p");
     perror.setAttribute("id", "Errorbox");
 
+    let createaccountbutton = document.createElement("button");
+    createaccountbutton.setAttribute("type", "submit");
+    createaccountbutton.setAttribute("onclick", "createaccount()");
+    createaccountbutton.innerHTML="Create Account";
+
     let submitbutton = document.createElement("button");
     submitbutton.setAttribute("type", "submit");
     submitbutton.setAttribute("class", "btn btn-danger");
@@ -270,6 +294,7 @@ function createLogin(){
     divlogin.appendChild(inputpwd);
     divlogin.appendChild(br);
     divlogin.appendChild(perror);
+    divlogin.appendChild(createaccountbutton);
     divlogin.appendChild(br);
     divlogin.appendChild(submitbutton);
     //divlogin.appendChild(form);

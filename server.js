@@ -37,32 +37,30 @@ app.post('/login',function(req, res){
     let mail = req.body.mail;
     let password = req.body.password;
     req.session.name = mail;
-    console.log(req.body);
     Model.getUsersFromDatabase(req.body.mail)
         .then(row =>{
             if (row === undefined) {
                 res.send(JSON.stringify({"Response" : "usernotfound"}));
-                console.log("undefined");
                 req.session.destroy();
 
             }
             else if(mail === row.mail && password === row.password){
-                //res.redirect('/');
-                console.log("correct");
+                Model.getLastSearch();
                 res.send(JSON.stringify({"Response": "passwordcorrect"}));
             }
             else{
                 res.send(JSON.stringify({"Response": "passwordincorrect"}));
-                console.log("incorrect");
                 req.session.destroy();
             }
         })
 
-    // Default response for any other requestS
-    app.use(function(req, res){
-        res.status(404);
-    });
 })
+
+app.delete('/logout', function (req,res){
+    req.session.destroy();
+    res.redirect('/');
+})
+
 
 
 
