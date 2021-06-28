@@ -1,6 +1,5 @@
 const path = require('path')
 const fetch = require("node-fetch");
-const path = require("express-session");
 const sqlite3 = require('sqlite3').verbose();
 const CityState = new Map();
 
