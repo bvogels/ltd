@@ -1,5 +1,4 @@
-
-
+const path = require('path')
 const fetch = require("node-fetch");
 const path = require("express-session");
 const sqlite3 = require('sqlite3').verbose();
@@ -68,9 +67,8 @@ class Model {
 
     static getUsersFromDatabase(mail, callback){
         let db = new sqlite3.Database('./api/models/ltd.db');
-        let sql = `SELECT * FROM users WHERE mail = ?`;
+        let sql = 'SELECT * FROM users WHERE mail = ?';
         return new Promise((resolve,reject)=>{
-
             db.get(sql, mail, (err, row) => {
                 if (err) {
                     reject(err);
@@ -79,10 +77,26 @@ class Model {
                     resolve(row);
                 }
             });
-
             db.close();
         })
+    }
 
+   static displayAvailableFlight(destination) {
+        //debugger;
+        let flight;
+        let dbPath = path.resolve(__dirname+ 'flights.db');
+        let flightsDB = new sqlite3.Database(dbPath);
+        let query = 'SELECT * FROM flight';
+        return new Promise((resolve, reject) => {
+            flightsDB.each(query, [destination], (err, row) => {
+                if (err) {
+                    throw err;
+                }
+                flight = '${row.airline}';
+            });
+            flightsDB.close();
+            return flight;
+        })
     }
     static checkifAccountexists(body){
         let mail = body.mail;
@@ -162,6 +176,7 @@ class Model {
         })
 
     }
+
 
 }
 
