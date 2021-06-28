@@ -36,7 +36,8 @@ function submitDestination() {
 
         xhr.onreadystatechange = function () { // Call a function when the state changes.
             if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                createDesk();
+                createDesk(myVar);
+
 
             }
         }
@@ -52,7 +53,9 @@ function submitDestination() {
 }
 
 
-function createDesk(){
+
+function createDesk(data){
+
     document.getElementById("onchange").remove();
     let main = document.getElementById("mainHome");
     let hr = document.createElement("hr");
@@ -60,6 +63,16 @@ function createDesk(){
     //First DIV
     let divgeneral = document.createElement("div");
     divgeneral.setAttribute("class", "container");
+    let result = JSON.parse(data);
+
+    //entered information from user, usable for api
+    let destinationInfo = result.destination;
+    let outgoingInfo = result.destination;
+    let incomingInfo = result.destination;
+
+    console.log(destinationInfo);
+
+    let container = document.createElement("div");
 
     //First Row
     let divrowquery = document.createElement("div");
@@ -67,7 +80,7 @@ function createDesk(){
 
     let divcurrentquery = document.createElement("div");
     divcurrentquery.setAttribute("class", "col-sm-6");
-    divcurrentquery.innerHTML = "Your current query: Flight to Spain, Europe";
+    divcurrentquery.innerHTML = "Your current query: Flight to "+destinationInfo;
 
     let divnewcases = document.createElement("div");
     divnewcases.setAttribute("class","col-sm-6");
@@ -266,6 +279,17 @@ function createLogin(){
     divonchange.id = "onchange";
     divonchange.appendChild(divlogin);
     main.appendChild(divonchange);
+    bmeiaApi(destinationInfo);
+
+
+}
+
+
+function bmeiaApi(country){
+
+    let dest = country;
+    let url = "https://www.bmeia.gv.at/reise-aufenthalt/reiseinformation/land/"+dest+"/type/json/";
+    console.log(url);
 
 }
 
