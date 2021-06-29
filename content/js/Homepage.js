@@ -44,7 +44,7 @@ function submitDestination() {
 
 
         let xhr = new XMLHttpRequest();
-        xhr.open("POST", '/search', true);
+        xhr.open("PUT", '/search', true);
 
         //Send the proper header information along with the request
         xhr.setRequestHeader("Content-Type", "application/json");

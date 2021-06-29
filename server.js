@@ -61,7 +61,7 @@ app.delete('/logout', function (req,res){
     res.redirect('/');
 })
 
-app.post("/search", function (req,res){
+app.put("/search", function (req,res){
 
     let item = req.body;
     Model.displayAvailableFlight(item.destination)
