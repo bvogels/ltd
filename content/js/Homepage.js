@@ -52,6 +52,7 @@ function submitDestination() {
 
 function createDesk(data){
     console.log(data);
+    console.log("Test");
     document.getElementById("onchange").remove();
     let main = document.getElementById("mainHome");
     let hr = document.createElement("hr");
@@ -61,11 +62,11 @@ function createDesk(data){
     divgeneral.setAttribute("class", "container");
 
     //entered information from user, usable for api
-    let destinationInfo = data.destination;
-    let airline = data.airline;
-    let departure = data.departure;
-    let arrival = data.arrival;
-    let price = data.price;
+    let destinationInfo = data[0].destination;
+    //let airline = data.airline;
+    //let departure = data.departure;
+    //let arrival = data.arrival;
+    //let price = data.price;
    // console.log(destinationInfo);
 
     //let container = document.createElement("div");
@@ -175,6 +176,7 @@ function createDesk(data){
     tablerow.appendChild(tableh5);
 
     let tablebody = document.createElement("tbody");
+    /*
     let tablerowitem = document.createElement("tr");
     tablerowitem.setAttribute("class", "item");
 
@@ -188,15 +190,40 @@ function createDesk(data){
     td4.innerHTML = "20:05h";
     let td5 = document.createElement("td");
     td5.innerHTML = price;
+*/
+    Object.keys(data).forEach(key => {
+        console.log(key , data[key]);
+        let airline = data[key].airline;
+        let departure = data[key].departure;
+        let arrival = data[key].arrival;
+        let price = data[key].price;
+        let duration = data[key].duration;
 
-    tablerowitem.appendChild(td1);
-    tablerowitem.appendChild(td2);
-    tablerowitem.appendChild(td3);
-    tablerowitem.appendChild(td4);
-    tablerowitem.appendChild(td5);
+        let tablerowitem = document.createElement("tr");
+        tablerowitem.setAttribute("class", "item");
 
-    tablebody.appendChild(tablerowitem);
-    tableflights.appendChild(tablerow);
+        let td1 = document.createElement("td");
+        td1.innerHTML = airline;
+        let td2 = document.createElement("td");
+        td2.innerHTML = departure;
+        let td3 = document.createElement("td");
+        td3.innerHTML = arrival;
+        let td4 = document.createElement("td");
+        td4.innerHTML = duration;
+        let td5 = document.createElement("td");
+        td5.innerHTML = price;
+
+        tablerowitem.appendChild(td1);
+        tablerowitem.appendChild(td2);
+        tablerowitem.appendChild(td3);
+        tablerowitem.appendChild(td4);
+        tablerowitem.appendChild(td5);
+
+        tablebody.appendChild(tablerowitem);
+        tableflights.appendChild(tablerow);
+    })
+
+
     tableflights.appendChild(tablebody);
     divflights.appendChild(tableflights);
 
@@ -211,6 +238,7 @@ function createDesk(data){
     divonchange.appendChild(hr);
     divonchange.appendChild(divcovidinfo);
     divonchange.appendChild(divflights);
+
     main.appendChild(divonchange);
 
     fetch("/getcovidinfo",
@@ -220,7 +248,7 @@ function createDesk(data){
                 'Content-Type': 'application/json'
             },
             method: "POST",
-            body: JSON.stringify({"destination": data.destination})
+            body: JSON.stringify({"destination": destinationInfo})
         }).then( res => {
         res.json().then(function(data) {
             console.log(data);
@@ -314,6 +342,235 @@ function bmeiaApi(country){
     let url = "https://www.bmeia.gv.at/reise-aufenthalt/reiseinformation/land/"+dest+"/type/json/";
     console.log(url);
 
+}
+
+function createHomepage(){
+    document.getElementById("onchange").remove();
+    let main = document.getElementById("mainHome");
+
+    let hr = document.createElement("hr");
+    let br = document.createElement("br");
+
+    let divslides = document.createElement("div");
+    divslides.id = "slides";
+    divslides.setAttribute("class","carousel slide carousel-fade");
+    divslides.setAttribute("data-ride", "carousel");
+
+    let ulc = document.createElement("ul");
+    ulc.setAttribute("class","carousel-indicators");
+
+    let li1 = document.createElement("li");
+    li1.setAttribute("data-target", "#slides");
+    li1.setAttribute("data-slide-to", "0");
+    li1.setAttribute("class", "active");
+
+    let li2 = document.createElement("li");
+    li2.setAttribute("data-target", "#slides");
+    li2.setAttribute("data-slide-to", "1");
+
+    let li3 = document.createElement("li");
+    li3.setAttribute("data-target", "#slides");
+    li3.setAttribute("data-slide-to", "2");
+
+    ulc.appendChild(li1);
+    ulc.appendChild(li2);
+    ulc.appendChild(li3);
+
+
+    let divcarousel = document.createElement("div");
+    divcarousel.setAttribute("class", "carousel-inner");
+
+    let divcitem1 = document.createElement("div");
+    divcitem1.setAttribute("class", "carousel-item active");
+
+    let divcimg1 = document.createElement("img");
+    divcimg1.setAttribute("src", "images/norway.jpg");
+    divcimg1.setAttribute("class", "img-fluid");
+
+    let divccaption1 = document.createElement("div");
+    divccaption1.setAttribute("class", "carousel-caption");
+
+    let divc1h2 = document.createElement("h2");
+    divc1h2.innerHTML = "Find your next destionation";
+
+    let divcitem2 = document.createElement("div");
+    divcitem2.setAttribute("class", "carousel-item");
+
+    let divcimg2 = document.createElement("img");
+    divcimg2.setAttribute("src", "images/manhatten.jpg");
+    divcimg2.setAttribute("class", "img-fluid");
+
+    let divccaption2 = document.createElement("div");
+    divccaption2.setAttribute("class", "carousel-caption");
+
+    let divc2h2 = document.createElement("h2");
+    divc2h2.innerHTML = "Find your next destionation";
+
+    let divcitem3 = document.createElement("div");
+    divcitem3.setAttribute("class", "carousel-item");
+
+    let divcimg3 = document.createElement("img");
+    divcimg3.setAttribute("src", "images/beach.jpg");
+    divcimg3.setAttribute("class", "img-fluid");
+
+    let divccaption3 = document.createElement("div");
+    divccaption3.setAttribute("class", "carousel-caption");
+
+    let divc3h2 = document.createElement("h2");
+    divc3h2.innerHTML = "Find your next destination";
+
+
+    divcitem3.appendChild(divcimg3);
+    divccaption3.appendChild(divc3h2);
+    divcitem3.appendChild(divccaption3);
+
+    divcitem2.appendChild(divcimg2);
+    divccaption2.appendChild(divc2h2);
+    divcitem2.appendChild(divccaption2);
+
+    divcitem1.appendChild(divcimg1);
+    divccaption1.appendChild(divc1h2);
+    divcitem1.appendChild(divccaption1);
+
+    divcarousel.appendChild(divcitem1);
+    divcarousel.appendChild(divcitem2);
+    divcarousel.appendChild(divcitem3);
+
+    divslides.appendChild(ulc);
+    divslides.appendChild(divcarousel);
+
+    let divsearch = document.createElement("div");
+    divsearch.setAttribute("class", "container-fluid padding searchInfo");
+
+    let divdestination = document.createElement("div");
+    divdestination.setAttribute("class", "row text-center infobox d-flex align-items-center justify-content-center");
+    divdestination.setAttribute("id", "destination");
+
+    let divinnerdest = document.createElement("div");
+    divinnerdest.setAttribute("class", "col-xs-12 col-md-3 information");
+
+
+    let inputdest = document.createElement("input");
+    inputdest.setAttribute("type", "text");
+    inputdest.setAttribute("id", "dest");
+    inputdest.setAttribute("placeholder", "Destination");
+
+    let divoutgoing = document.createElement("div");
+    divoutgoing.setAttribute("class", "row text-center infobox d-flex align-items-center justify-content-center ");
+
+    let divinnerout = document.createElement("div");
+    divinnerout.setAttribute("class", "col-xs-12 col-md-3 information");
+
+    let inputoutgoing = document.createElement("input");
+    inputoutgoing.setAttribute("type", "date");
+    inputoutgoing.setAttribute("id", "outgoing");
+    inputoutgoing.setAttribute("name", "outgoing");
+
+    let divincoming = document.createElement("div");
+    divincoming.setAttribute("class", "row text-center infobox d-flex align-items-center justify-content-center ");
+
+    let divinnerinc = document.createElement("div");
+    divinnerinc.setAttribute("class", " col-xs-12 col-md-3 information");
+
+    let inputincoming = document.createElement("input");
+    inputincoming.setAttribute("type", "date");
+    inputincoming.setAttribute("id", "incoming");
+    inputincoming.setAttribute("name", "incoming");
+
+    let divsubmit = document.createElement("div");
+    divsubmit.setAttribute("class", "row text-center infobox d-flex align-items-center justify-content-center");
+    divsubmit.setAttribute("id", "searchlink");
+
+    let divinnersub = document.createElement("div");
+    divinnersub.setAttribute("class", " col-xs-12 col-md-3 information");
+
+    let inputsubmit = document.createElement("button");
+    inputsubmit.setAttribute("type", "submit");
+    inputsubmit.setAttribute("onclick", "submitDestination()");
+    inputsubmit.innerHTML = "Search";
+
+    divinnersub.appendChild(inputsubmit);
+    divsubmit.appendChild(divinnersub);
+
+    divinnerinc.appendChild(inputincoming);
+    divincoming.appendChild(divinnerinc);
+
+    divinnerout.appendChild(inputoutgoing);
+    divoutgoing.appendChild(divinnerout);
+
+    divinnerdest.appendChild(inputdest);
+    divdestination.appendChild(divinnerdest);
+
+
+    divsearch.appendChild(divdestination);
+    divsearch.appendChild(divincoming);
+    divsearch.appendChild(divoutgoing);
+    divsearch.appendChild(divsubmit);
+
+    let divtextfields = document.createElement("div");
+    divtextfields.setAttribute("class", "container-fluid padding textfields row text-center padding");
+
+    let divteam = document.createElement("div");
+    divteam.setAttribute("class", "col-xs-12 col-sm-6 col-md-4");
+
+    let teamh2 = document.createElement("h2");
+    teamh2.setAttribute("class", "text-center con-h");
+    teamh2.innerHTML = "Our Team";
+
+    let pteamtext = document.createElement("p");
+    pteamtext.innerHTML = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,\n" +
+        "                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n" +
+        "                    At vero eos et accusam et justo duo dolores et ea rebum.";
+
+    let divphilosophy = document.createElement("div");
+    divphilosophy.setAttribute("class", "col-xs-12 col-sm-6 col-md-4");
+
+    let philosophyh2 = document.createElement("h2");
+    philosophyh2.setAttribute("class", "text-center con-h");
+    philosophyh2.innerHTML = "Our Philosophy";
+
+    let pphilosophytext = document.createElement("p");
+    pphilosophytext.innerHTML = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,\n" +
+        "                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n" +
+        "                    At vero eos et accusam et justo duo dolores et ea rebum.";
+
+    let divgoal = document.createElement("div");
+    divgoal.setAttribute("class", "col-xs-12 col-sm-6 col-md-4");
+
+    let pgoalh2 = document.createElement("h2");
+    pgoalh2.setAttribute("class", "text-center con-h");
+    pgoalh2.innerHTML = "Our Philosophy";
+
+    let pgoaltext = document.createElement("p");
+    pgoaltext.innerHTML = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,\n" +
+        "                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n" +
+        "                    At vero eos et accusam et justo duo dolores et ea rebum.";
+
+    divteam.appendChild(document.createElement("br"));
+    divteam.appendChild(teamh2);
+    divteam.appendChild(document.createElement("hr"));
+    divteam.appendChild(pteamtext);
+
+    divphilosophy.appendChild(document.createElement("br"));
+    divphilosophy.appendChild(philosophyh2);
+    divphilosophy.appendChild(hr);
+    divphilosophy.appendChild(pphilosophytext);
+
+    divgoal.appendChild(document.createElement("br"));
+    divgoal.appendChild(pgoalh2);
+    divgoal.appendChild(document.createElement("hr"));
+    divgoal.appendChild(pgoaltext);
+
+    divtextfields.appendChild(divteam);
+    divtextfields.appendChild(divphilosophy);
+    divtextfields.appendChild(divgoal);
+
+    let divonchange = document.createElement("div");
+    divonchange.id = "onchange";
+    divonchange.appendChild(divslides);
+    divonchange.appendChild(divsearch);
+    divonchange.appendChild(divtextfields);
+    main.appendChild(divonchange);
 }
 
 /*

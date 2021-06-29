@@ -1,6 +1,10 @@
 const Model = require("../models/Models");
 const path = require("path");
-
+const fetch = require("node-fetch");
+const CityState = new Map();
+CityState.set("Helsinki", "Finland");
+CityState.set("Sevilla", "Spain");
+CityState.set("Vienna", "Austria");
 
 class Controller {
 
@@ -13,18 +17,32 @@ class Controller {
 
     }
     static getcovidinfo(req,res){
+    /*
         Model.getCovidInfo(req.body.destination)
             .then(row =>{
                 console.log(row);
                 res.send(row);
             })
+*/
+        let country = CityState.get(req.body.destination);
+        const url = 'https://covid-api.mmediagroup.fr/v1/cases?country=' + country;
+        fetch(url, {method: 'GET'})
+            .then((resp) => resp.json())
+            .then(function (data) {
+                res.send(data.All);
+                //Model.insertCovidInfo(data);
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     static storeInfoData(req, res){
           let item = req.body;
         Model.displayAvailableFlight(item.destination)
-            .then(row =>{
-            res.send(row);
+            .then(flights =>{
+                res.send(JSON.stringify(flights));
         })
 
     }
@@ -32,7 +50,6 @@ class Controller {
     static createaccount(req, res){
         Model.checkifAccountexists(req.body)
         .then(row =>{
-            console.log(row);
             if (row === undefined) {
 
                 Model.createAccount(req.body);

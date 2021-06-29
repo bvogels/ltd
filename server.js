@@ -61,6 +61,24 @@ app.delete('/logout', function (req,res){
     res.redirect('/');
 })
 
+app.post("/search", function (req,res){
+
+    let item = req.body;
+    Model.displayAvailableFlight(item.destination)
+        .then(flights =>{
+            let flightsjson = JSON.stringify(flights);
+            res.send(flightsjson);
+            if(req.session.name !== undefined){
+                console.log(req.session.name);
+                Object.keys(flights).forEach(key => {
+                    console.log(flights[key]);
+                    Model.changeLastSearched(req.session.name, flights);
+                })
+            }
+        })
+
+})
+
 
 
 

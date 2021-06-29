@@ -41,7 +41,11 @@ function login(){
 
 }
 function getHomepage(){
-    window.location.href = "/";
+    //window.location.href = "/";
+    createHomepage();
+    let loginbutton = document.getElementById("navlogin");
+    loginbutton.innerHTML = "Logout";
+    loginbutton.setAttribute("onClick", "logout()");
 }
 function getRecentSearched(mail){
     fetch("/getRecentSearched",
@@ -54,7 +58,8 @@ function getRecentSearched(mail){
             body: JSON.stringify({"mail": mail})
         }).then( res => {
         res.json().then(function(data) {
-            if(data.mail === "undefined"){
+            console.log(data);
+            if(Object.keys(data).length === 0){
                 getHomepage();
             }
             else{
