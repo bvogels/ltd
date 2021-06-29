@@ -3,7 +3,27 @@ window.onload = (event) => {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+    fetch("/session",
+        {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "GET",
+        }).then( res => {
+        res.json().then(function(data) {
+            if(data.Response === "session established"){
+                let loginbutton = document.getElementById("navlogin");
+                loginbutton.innerHTML = "Logout";
+                loginbutton.setAttribute("onClick", "logout()");
+            }
 
+        });
+    }).catch ( e => {
+        console.log(e);
+        // handle errors here
+
+    });
 });
 
 function openlogin(){
@@ -343,7 +363,7 @@ function bmeiaApi(country){
     console.log(url);
 
 }
-
+/*
 function createHomepage(){
     document.getElementById("onchange").remove();
     let main = document.getElementById("mainHome");
@@ -572,6 +592,7 @@ function createHomepage(){
     divonchange.appendChild(divtextfields);
     main.appendChild(divonchange);
 }
+*/
 
 /*
 

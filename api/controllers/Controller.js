@@ -80,37 +80,45 @@ class Controller {
         req.session.destroy();
         res.redirect('/');
     }
+    /*
+        static sessioninfo(req,res){
+            if(req.session.name !== undefined){
+                res.send({"Response" : "session established"});
+            }
+            else{
+                res.send({"Response" : "no session"});
+            }
+        }
 
 
-/*
-    static login(req,res){
-        let mail = req.body.mail;
-        let password = req.body.password;
-        req.session.name = mail;
-        console.log(req.body);
-        Model.getUsersFromDatabase(req.body.mail)
-            .then(row =>{
-                if (row === undefined) {
-                    res.send(JSON.stringify({"Response" : "usernotfound"}));
-                    req.session.destroy(function(error){
-                        console.log("Session Destroyed")
-                    })
-                }
-                else if(mail === row.mail && password === row.password){
-                    res.redirect('/');
-                }
-                else{
-                    res.send(JSON.stringify({"Response": "passwordincorrect"}));
-                    req.session.destroy();
-                }
-            })
-            .catch(error => {
-                res.send(error);
-            });
+        static login(req,res){
+            let mail = req.body.mail;
+            let password = req.body.password;
+            req.session.name = mail;
+            console.log(req.body);
+            Model.getUsersFromDatabase(req.body.mail)
+                .then(row =>{
+                    if (row === undefined) {
+                        res.send(JSON.stringify({"Response" : "usernotfound"}));
+                        req.session.destroy(function(error){
+                            console.log("Session Destroyed")
+                        })
+                    }
+                    else if(mail === row.mail && password === row.password){
+                        res.redirect('/');
+                    }
+                    else{
+                        res.send(JSON.stringify({"Response": "passwordincorrect"}));
+                        req.session.destroy();
+                    }
+                })
+                .catch(error => {
+                    res.send(error);
+                });
 
-    }
+        }
 
-*/
+    */
 
 
 }

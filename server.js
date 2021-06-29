@@ -79,6 +79,15 @@ app.post("/search", function (req,res){
 
 })
 
+app.get("/session", function (req,res){
+    if(req.session.name !== undefined){
+        res.send({"Response" : "session established"});
+    }
+    else{
+        res.send({"Response" : "no session"});
+    }
+})
+
 
 
 

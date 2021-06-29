@@ -10,4 +10,5 @@ Routes.get('/', controller.displayHomepage);
 Routes.post("/createaccount", controller.createaccount);
 Routes.post("/getRecentSearched", controller.getRecentSearched);
 Routes.post("/getcovidinfo", controller.getcovidinfo);
+//Routes.get("/session", controller.sessioninfo);
 module.exports = Routes;

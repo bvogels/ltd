@@ -41,8 +41,8 @@ function login(){
 
 }
 function getHomepage(){
-    //window.location.href = "/";
-    createHomepage();
+    window.location.href = "/";
+    //createHomepage();
     let loginbutton = document.getElementById("navlogin");
     loginbutton.innerHTML = "Logout";
     loginbutton.setAttribute("onClick", "logout()");
